@@ -12,6 +12,8 @@ public class controller extends JPanel{
     login loginPanel;
     Main mainPanel;
     createAcc createAccPanel;
+    sudokuPage sudokuPanel;
+    ticTacToePage ticTacToePanel;
 
     public controller(){
         setSize(500,500);
@@ -20,10 +22,14 @@ public class controller extends JPanel{
         loginPanel = new login();
         mainPanel = new Main();
         createAccPanel = new createAcc();
+        sudokuPanel = new sudokuPage();
+        ticTacToePanel = new ticTacToePage();
 
         cardLayout.add(loginPanel, "Login");
         cardLayout.add(mainPanel, "Main Page");
         cardLayout.add(createAccPanel, "Create Account");
+        cardLayout.add(sudokuPanel, "Sudoku");
+        cardLayout.add(ticTacToePanel, "Tic Tac Toe");
 
         add(cardLayout);
         setVisible(true);
