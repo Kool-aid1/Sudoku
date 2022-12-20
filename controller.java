@@ -37,12 +37,12 @@ public class controller extends JPanel{
     }
 
     private static void displayPanel(){
-        JFrame title = new JFrame("Project");
+        JFrame title = new JFrame("Game Center");
 
         instance = new controller();
 
         title.getContentPane().add(instance);
-        title.setSize(500,500);
+        title.setSize(550,500);
         title.setVisible(true);
     }
 
