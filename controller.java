@@ -9,6 +9,7 @@ public class controller extends JPanel{
 
     JPanel cardLayout; //create panel of cards
     
+    //Panels for pages
     login loginPanel;
     Main mainPanel;
     createAcc createAccPanel;

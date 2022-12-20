@@ -131,7 +131,7 @@ public class createAcc extends JPanel implements ActionListener{
         if(e.getSource() == signUp){
             controller.getInstance().changeCard("Main Page");
         }
-        else if(e.getSource() == back){
+        if(e.getSource() == back){
             controller.getInstance().changeCard("Login");
         }
         //resetting entered fields to empty 
