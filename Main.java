@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class Main extends JPanel implements ActionListener{
  private JLabel welcome, logoLabel;
- private JButton playSudoku, playTicTacToe;
+ private JButton playSudoku, playTicTacToe, logout;
  private ImageIcon logo;
 
     public Main(){
@@ -14,6 +14,7 @@ public class Main extends JPanel implements ActionListener{
         JPanel title = new JPanel();
         JPanel sudoku = new JPanel();
         JPanel ticTacToe = new JPanel();
+        JPanel logoutPanel = new JPanel();
         JPanel logoPanel = new JPanel();
 
 
@@ -37,19 +38,26 @@ public class Main extends JPanel implements ActionListener{
         playTicTacToe.addActionListener(this);
         playTicTacToe.setPreferredSize(new Dimension(150, 35));
 
+        //logout button
+        logout = new JButton("Log Out");
+        logout.addActionListener(this);
+        logout.setPreferredSize(new Dimension(150, 35));
+
         //for formatting of page
         title.add(welcome);
         logoPanel.add(logoLabel);
         sudoku.add(playSudoku);
         ticTacToe.add(playTicTacToe);
+        logoutPanel.add(logout);
 
         //added to main panel
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+        
         main.add(logoPanel);
         main.add(title);
-        
         main.add(sudoku);
         main.add(ticTacToe);
+        main.add(logoutPanel);
 
         add(main);
         setVisible(true);
@@ -66,6 +74,8 @@ public class Main extends JPanel implements ActionListener{
         if(e.getSource() == playTicTacToe){
             controller.getInstance().changeCard("Tic Tac Toe");
         }
-        
+        if(e.getSource() == logout){
+            controller.getInstance().changeCard("Login");
+        }
     }
 } 

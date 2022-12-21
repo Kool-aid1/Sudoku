@@ -38,9 +38,7 @@ public class controller extends JPanel{
 
     private static void displayPanel(){
         JFrame title = new JFrame("Game Center");
-
         instance = new controller();
-
         title.getContentPane().add(instance);
         title.setSize(550,500);
         title.setVisible(true);
@@ -51,10 +49,10 @@ public class controller extends JPanel{
         card.show(cardLayout, cards);
     }
 
-
     public static controller getInstance(){
         return instance;
     }
+    
     public static void main(String[] args){
         displayPanel();
     }
