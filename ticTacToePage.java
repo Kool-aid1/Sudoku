@@ -49,7 +49,8 @@ public class ticTacToePage extends JPanel implements ActionListener{
         //buttons to chose which square to set x/o
         button_panel.setLayout(new GridLayout(3,3));
         //button_panel.setBackground(new Color(0,255,255));//make color to cyan
-
+        
+        //setting up the tic tac toe board
         for(int i = 0; i < 9; i++){//to fill the 9 buttons for tic tac toe
             buttons[i] = new JButton(" ");// fill each button
             button_panel.add(buttons[i]);// add/push the button
@@ -93,13 +94,14 @@ public class ticTacToePage extends JPanel implements ActionListener{
     }
     /*
      * Which player goes first when game is loaded
+     * and to clear/refresh the board
      */
     public void startGame(){
         for(int i = 0; i < 9; i++){ //restart game
             buttons[i].setText(" "); //empty each tile
             buttons[i].setEnabled(true); //allow player to click on buttons
-            buttons[i].setBackground(null);
-            count = 0;
+            buttons[i].setBackground(null); //return the background color to its original state
+            count = 0; //initalize back to the start
         }
         
         int player_turn = r.nextInt(100);//set a random number between 1-100
