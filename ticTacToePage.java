@@ -21,16 +21,12 @@ public class ticTacToePage extends JPanel implements ActionListener{
     public ticTacToePage(){
 
         JPanel main = new JPanel();
-        JPanel title = new JPanel();
         JPanel players = new JPanel();
         JPanel playerPoints = new JPanel();
         JPanel player_X = new JPanel();
         JPanel player_O = new JPanel();
         JPanel gameControls = new JPanel();
         JPanel buttonLayout = new JPanel();
-
-        game = new JLabel("Tic Tac Toe");
-        title.add(game);
 
         prompt = new JLabel("Player");
         prompt.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -72,17 +68,16 @@ public class ticTacToePage extends JPanel implements ActionListener{
 
         players.setLayout(new FlowLayout(FlowLayout.CENTER));
         players.add(prompt);
-        //players.add(buttonLayout);
 
         playerPoints.setLayout(new BoxLayout(playerPoints, BoxLayout.Y_AXIS));
         playerPoints.add(player_X);
         playerPoints.add(player_O);
+
         //formatting
         gameControls.add(button_panel);
         gameControls.add(playerPoints);
 
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-        //main.add(title);
         main.add(gameControls);
         main.add(players);
         main.add(buttonLayout);
