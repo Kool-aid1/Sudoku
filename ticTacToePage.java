@@ -23,9 +23,10 @@ public class ticTacToePage extends JPanel implements ActionListener{
         JPanel main = new JPanel();
         JPanel title = new JPanel();
         JPanel players = new JPanel();
+        JPanel playerPoints = new JPanel();
         JPanel player_X = new JPanel();
         JPanel player_O = new JPanel();
-        JPanel controls = new JPanel();
+        JPanel gameControls = new JPanel();
         JPanel buttonLayout = new JPanel();
 
         game = new JLabel("Tic Tac Toe");
@@ -35,7 +36,7 @@ public class ticTacToePage extends JPanel implements ActionListener{
         prompt.setFont(new Font("Arial", Font.PLAIN, 30));
         players.add(prompt);
 
-        //tuan 0_0 , 
+        //tuan licks dick
         winsX = new JLabel("X Wins:");
         winsX.setFont(new Font("Arial", Font.PLAIN, 30));
         player_X.add(winsX);
@@ -68,19 +69,22 @@ public class ticTacToePage extends JPanel implements ActionListener{
         buttonLayout.add(back);
         buttonLayout.add(newGame);
 
-        players.setLayout(new BoxLayout(players, BoxLayout.Y_AXIS));
+        players.setLayout(new FlowLayout(FlowLayout.CENTER));
         players.add(prompt);
-        players.add(buttonLayout);
+        //players.add(buttonLayout);
 
+        playerPoints.setLayout(new BoxLayout(playerPoints, BoxLayout.Y_AXIS));
+        playerPoints.add(player_X);
+        playerPoints.add(player_O);
         //formatting
-        controls.add(button_panel);
-        controls.add(players);
+        gameControls.add(button_panel);
+        gameControls.add(playerPoints);
 
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-        main.add(title);
-        main.add(controls);
-        main.add(player_O);
-        main.add(player_X);
+        //main.add(title);
+        main.add(gameControls);
+        main.add(players);
+        main.add(buttonLayout);
 
         add(main);
         setVisible(true);
@@ -199,7 +203,6 @@ public class ticTacToePage extends JPanel implements ActionListener{
            (buttons[6].getText() == "O")) {
             O(2, 4, 6); // for right diagonal
         }
-        //---------------------------------------------------------------------------//
         /*
          * check to see if there is a tie
          */
@@ -214,45 +217,44 @@ public class ticTacToePage extends JPanel implements ActionListener{
             buttons[6].setBackground(Color.GRAY);
             buttons[7].setBackground(Color.GRAY);
             buttons[8].setBackground(Color.GRAY);
-        }
-        
+        }   
     }
     /*
      * Player using 'X' wins
      * highligh the specific grid in red
      */
     public void X(int x, int y, int z){
-        //buttons[x].setForeground(Color.BLUE);
+
         buttons[x].setBackground(Color.RED);
         buttons[y].setBackground(Color.RED);
         buttons[z].setBackground(Color.RED);
         
-        /* greys out the buttons
-        for(int i = 0; i < 9; i++){
-            buttons[i].setEnabled(false);
-        }
-        */
         prompt.setText("Player X won the game");
         xWins++;
         winsX.setText("X Wins: "+ xWins);
+
+        //Set buttons disabled after win
+        for(int i = 0; i < 9; i++){
+            buttons[i].setEnabled(false);
+        }
     }
     /*
      * Player using 'O' wins
      * highlight the specific grid in green
      */
     public void O(int x, int y, int z){
-        //buttons[x].setForeground(Color.RED);
+
         buttons[x].setBackground(Color.GREEN);
         buttons[y].setBackground(Color.GREEN);
         buttons[z].setBackground(Color.GREEN);
 
-        /*for(int i = 0; i < 9; i++){
-            buttons[i].setEnabled(true);
-        }*/
         prompt.setText("Player O won the game");
         oWins++; 
-        //String.valueOf(oWins);
         winsO.setText("O Wins: "+ oWins);
+        //Set buttons disabled after win
+        for(int i = 0; i < 9; i++){
+            buttons[i].setEnabled(false);
+        }
     }
 
     public void actionPerformed(ActionEvent e){
@@ -278,7 +280,7 @@ public class ticTacToePage extends JPanel implements ActionListener{
                         buttons[i].setText("X");// set to X
                         player = false;
 
-                        prompt.setText("O turn");// let the user know to swap turns
+                        prompt.setText("O's turn");// let the user know to swap turns
                         count++;
                         check();
                     }
@@ -290,7 +292,7 @@ public class ticTacToePage extends JPanel implements ActionListener{
                         buttons[i].setText("O");// set to X
                         player = true;
 
-                        prompt.setText("X turn");// let the user know to swap turns
+                        prompt.setText("X's turn");// let the user know to swap turns
                         count++;
                         check();
                     }
@@ -299,8 +301,6 @@ public class ticTacToePage extends JPanel implements ActionListener{
         }
        
     }
-
-
 }
 
 
