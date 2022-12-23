@@ -32,7 +32,6 @@ public class ticTacToePage extends JPanel implements ActionListener{
         prompt.setFont(new Font("Arial", Font.PLAIN, 30));
         players.add(prompt);
 
-        //tuan licks dick
         winsX = new JLabel("X Wins:");
         winsX.setFont(new Font("Arial", Font.PLAIN, 30));
         player_X.add(winsX);
